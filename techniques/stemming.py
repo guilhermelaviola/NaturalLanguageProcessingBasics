@@ -1,10 +1,9 @@
 # Stemming example
 from nltk.tokenize import WordPunctTokenizer
 from nltk.stem import PorterStemmer
-#from nltk.corpus import stopwords
+from nltk.corpus import stopwords
 import numpy as np
 import requests
-import stopwords
 
 # This function returns the raw text of a Wikipedia page given its page title
 def wikipedia_page_stemming(title):
@@ -35,10 +34,12 @@ text = wikipedia_page_stemming('Inter Milan').lower()
 tokens = WordPunctTokenizer().tokenize(text)
 tokens = [tk for tk in tokens if tk not in stopwords.words('english')]
 
-# Instantiating a PorterStemmeer
+# Instantiating a PorterStemmer
 ps = PorterStemmer()
 
 # Stemming
-stem = [ps.stem(tk) for tk in tokens]
+stems = [ps.stem(tk) for tk in tokens]
+np.random.choice(stems, size=10)
 
-np.random.choice(stem, size=10)
+# Displaying the result
+print(stems)
