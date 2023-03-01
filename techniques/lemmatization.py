@@ -3,7 +3,7 @@ import spacy
 
 nlp = spacy.load('en_core_web_sm')
 
-# Text example to be used
+# Text example
 doc = nlp('The quick brown fox \t jumps over the lazy dog.')
 
 # Displaying the tokens and whether they are spaces,
